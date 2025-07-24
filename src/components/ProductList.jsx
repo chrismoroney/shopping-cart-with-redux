@@ -2,13 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
 
-const products = [
-  { id: 1, name: 'Apple', price: 1 },
-  { id: 2, name: 'Banana', price: 2 },
-  { id: 3, name: 'Cherry', price: 3 },
-];
-
-function ProductList() {
+function ProductList({ products }) {
   const dispatch = useDispatch();
 
   return (

@@ -1,15 +1,34 @@
-import React from 'react';
-import ProductList from './components/ProductList';
+import React, { useState } from 'react';
+import Navbar from './Navbar';
+import Fruits from './departments/Fruits';
+import Electronics from './departments/Electronics';
+import Clothing from './departments/Clothing';
 import Cart from './components/Cart';
 
-function App() {
+const App = () => {
+  const [department, setDepartment] = useState('fruits');
+
+  const renderDepartment = () => {
+    switch (department) {
+      case 'fruits':
+        return <Fruits />;
+      case 'electronics':
+        return <Electronics />;
+      case 'clothing':
+        return <Clothing />;
+      default:
+        return <Fruits />;
+    }
+  };
+
   return (
-    <div>
+    <>
       <h1>Shopping Cart</h1>
-      <ProductList />
+      <Navbar onSelectDepartment={setDepartment} />
+      {renderDepartment()}
       <Cart />
-    </div>
+    </>
   );
-}
+};
 
 export default App;
