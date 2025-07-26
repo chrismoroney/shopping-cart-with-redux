@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeOneFromCart, removeAllFromCart } from '../redux/actions';
+import { removeOneFromCart, removeAllFromCart } from '../features/cart/cartSlice';
 import CartItem from './CartItem';
 
 function Cart() {
-  const cart = useSelector(state => state.cart);
-  const total = useSelector(state => state.total);
+  const { cart, total } = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
   if (cart.length === 0) {

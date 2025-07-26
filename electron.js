@@ -6,7 +6,8 @@ function createWindow() {
     width: 1000,
     height: 800,
     webPreferences: {
-      contextIsolation: true,
+        nodeIntegration: false,
+        contextIsolation: true,
     },
   });
   //win.loadURL('http://localhost:3000');
